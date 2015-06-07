@@ -1,5 +1,5 @@
 /*
-  Arduino Yún Wifi-info
+  Arduino Yun Wifi-info
   2015-06-08 v1.0 - Initial release.
  
  */
@@ -22,6 +22,14 @@ void loop() {
   // put your main code here, to run repeatedly:
   Process wifiInfo;  // initialize a new process
 
+  Serial.print("======== ");
+  // Return Year-month-dateOfMonth"T"time
+  wifiInfo.runShellCommand("/bin/date +%Y-%m-%dT%T");
+  while (wifiInfo.available() > 0) {
+    char c = wifiInfo.read();
+    Serial.print(c);
+  }
+  
   Serial.println("Scanning for AP (Access Points) that are broadcasting.");  
   wifiInfo.runShellCommand("/usr/sbin/iwlist wlan0 scan | /bin/grep ESSI | /usr/bin/sort");  // command you want to run
 
