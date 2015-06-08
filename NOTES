@@ -1,0 +1,24 @@
+= NOTES =
+Date: 2015-06-07
+
+These notes are for ArduinoYun-Wifi-Info.ino
+
+This sketch is a simple troubleshooting sketch when have connectivity
+problems with the wifi and connections to the Internet. It provides
+several pieces of information.
+
+There is a programmable 10 second delay between readings.
+
+It provides
+
+1. The date and time as known to the Yun.
+2. The Access Points (APs) known to the Yun.
+3. The Wifi configuration of the Yun.
+4. The default gateway for the Yun, if any.
+
+Reasons for items:
+
+1. The date and time are used so that a running record may be kept of the output of this tool.
+2. This provides a record of those access points visible to the Yun.
+3. An incomplete record of what the radio actual setting.
+4. Any routes available outside of the current network.
