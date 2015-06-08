@@ -1,6 +1,7 @@
 /*
   Arduino Yun Wifi-info
   2015-06-08 v1.0 - Initial release.
+  2015-06-08 v1.1 - Update Gateway to return IP and not the name.
  
  */
 #include <Process.h>
@@ -79,7 +80,7 @@ void loop() {
   Serial.println();
   
   // Get the default gateway we are using
-  wifiInfo.runShellCommand("/sbin/route | /bin/grep default | /usr/bin/awk '{print $2}'");
+  wifiInfo.runShellCommand("/sbin/route -n | /bin/grep UG | /usr/bin/awk '{print $2}'");
   Serial.print("Gateway: ");
   while (wifiInfo.available() > 0) {
     char c = wifiInfo.read();
